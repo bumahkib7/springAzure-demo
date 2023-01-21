@@ -16,17 +16,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3.3.0
 
-      - name: Set up Java version
-        uses: actions/setup-java@v3
+      - name: Setup AdoptOpenJDK
+        uses: joschi/setup-jdk@v2.5.1
+
         with:
           java-version: '17'
 
       - name: Build with Maven
         run: mvn clean install
 
-      - name: Setup AdoptOpenJDK
-        uses: joschi/setup-jdk@v2.5.1
-
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v2
         with:
           name: java-app
           path: '${{ github.workspace }}/target/*.jar'
