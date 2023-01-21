@@ -16,8 +16,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3.3.0
 
-      - name: Setup AdoptOpenJDK
-        uses: joschi/setup-jdk@v2.5.1
+      - name: Setup Java JDK
+        uses: actions/setup-java@v3.9.0
+
 
         with:
           java-version: '17'
