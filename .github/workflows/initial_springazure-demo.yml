@@ -16,12 +16,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3.3.0
 
-      - name: Setup Java JDK
-        uses: actions/setup-java@v3.9.0
 
-
+      - name: Set Up jdk
+      - uses: actions/setup-java@v3
         with:
-          java-version: '17'
+            distribution: 'temurin' # See 'Supported distributions' for available options
+            java-version: '17'
 
       - name: Build with Maven
         run: mvn clean install
